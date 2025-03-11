@@ -1,0 +1,40 @@
+services:
+  teslamate:
+    image: teslamate/teslamate:latest
+    restart: always
+    ports:
+      - 4000:4000
+    volumes:
+      - ./import:/opt/app/import
+    cap_drop:
+      - all
+
+  database:
+    image: postgres:17
+    restart: always
+    volumes:
+      - teslamate-db:/var/lib/postgresql/data
+
+  grafana:
+    image: teslamate/grafana:latest
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - teslamate-grafana-data:/var/lib/grafana
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    restart: always
+    command: mosquitto -c /mosquitto-no-auth.conf
+    # ports:
+    #   - 1883:1883
+    volumes:
+      - mosquitto-conf:/mosquitto/config
+      - mosquitto-data:/mosquitto/data
+
+volumes:
+  teslamate-db:
+  teslamate-grafana-data:
+  mosquitto-conf:
+  mosquitto-data:
