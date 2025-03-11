@@ -2,6 +2,8 @@ services:
   teslamate:
     image: teslamate/teslamate:latest
     restart: always
+    env_file:
+      - stack.env
     ports:
       - 4000:4000
     volumes:
@@ -12,6 +14,8 @@ services:
   database:
     image: postgres:17
     restart: always
+    env_file:
+      - stack.env
     volumes:
       - /mnt/data/teslamate-db:/var/lib/postgresql/data
 
