@@ -15,14 +15,6 @@ services:
     volumes:
       - teslamate-db:/var/lib/postgresql/data
 
-  grafana:
-    image: teslamate/grafana:latest
-    restart: always
-    ports:
-      - 3000:3000
-    volumes:
-      - teslamate-grafana-data:/var/lib/grafana
-
   mosquitto:
     image: eclipse-mosquitto:2
     restart: always
