@@ -13,7 +13,7 @@ services:
     image: postgres:17
     restart: always
     volumes:
-      - teslamate-db:/var/lib/postgresql/data
+      - /mnt/data/teslamate-db:/var/lib/postgresql/data
 
   mosquitto:
     image: eclipse-mosquitto:2
@@ -22,11 +22,5 @@ services:
     # ports:
     #   - 1883:1883
     volumes:
-      - mosquitto-conf:/mosquitto/config
-      - mosquitto-data:/mosquitto/data
-
-volumes:
-  teslamate-db:
-  teslamate-grafana-data:
-  mosquitto-conf:
-  mosquitto-data:
+      - /mnt/data/mosquitto-conf:/mosquitto/config
+      - /mnt/data/mosquitto-data:/mosquitto/data
