@@ -30,3 +30,13 @@ services:
     volumes:
       - /mnt/data/mosquitto-conf:/mosquitto/config
       - /mnt/data/mosquitto-data:/mosquitto/data
+
+  teslamateapi:
+    image: tobiasehlert/teslamateapi:latest
+    restart: always
+    depends_on:
+      - database
+    environment:
+      - TZ=America/Toronto
+    ports:
+      - 8080:8080
