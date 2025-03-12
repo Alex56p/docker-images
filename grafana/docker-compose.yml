@@ -6,6 +6,6 @@ services:
     env_file:
       - ../stack.env
     ports:
-     - '3000:3000'
+     - '5000:3000'
     volumes:
       - /mnt/data/grafana-storage:/var/lib/grafana
