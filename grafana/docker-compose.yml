@@ -3,6 +3,7 @@ services:
     image: grafana/grafana-enterprise
     container_name: grafana
     restart: unless-stopped
+    user: '0'
     env_file:
       - ../stack.env
     ports:
