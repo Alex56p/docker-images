@@ -34,6 +34,8 @@ services:
   teslamateapi:
     image: tobiasehlert/teslamateapi:latest
     restart: always
+    env_file:
+      - ../stack.env
     depends_on:
       - database
     environment:
