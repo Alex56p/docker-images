@@ -3,7 +3,7 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     env_file:
-      - stack.env
+      - ../stack.env
     ports:
       - 3003:3000
     volumes:
