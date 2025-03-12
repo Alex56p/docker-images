@@ -39,4 +39,4 @@ services:
     environment:
       - TZ=America/Toronto
     ports:
-      - 8080:8080
+      - 4001:8080
