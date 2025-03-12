@@ -9,4 +9,7 @@ services:
     volumes:
       - /mnt/data/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
+      - /mnt/data:/disks/data
+      - /mnt/nas:/disks/nas
+      - /mnt/nas_backup:/disks/nas_backup
     restart: unless-stopped
