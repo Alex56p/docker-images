@@ -10,6 +10,7 @@ services:
       - /mnt/data/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
       - /mnt/data:/disks/data
+      - /:/disks/server
       - /mnt/nas:/disks/nas
-      - /mnt/nas_backup:/disks/nas_backup
+      - /mnt/immich:/disks/immich
     restart: unless-stopped
