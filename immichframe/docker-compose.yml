@@ -1,0 +1,10 @@
+name: immichframe
+services:
+  immichframe:
+    container_name: immichframe
+    image: ghcr.io/immichframe/immichframe:latest
+    restart: on-failure
+    ports:
+      - "2284:8080"
+    env_file:
+      - ../stack.env
