@@ -8,9 +8,9 @@ services:
 # Configurable proxy list support, see https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration#proxy-list-support
 #        - ./proxies.json:/datastore/proxies.json
 
-      environment:
+#      environment:
   #        Default listening port, can also be changed with the -p option (not to be confused with ports: below)
-        - PORT=5001
+#        - PORT=5001
   #
   #        Log levels are in descending order. (TRACE is the most detailed one)
   #        Log output levels: TRACE, DEBUG(default), INFO, SUCCESS, WARNING, ERROR, CRITICAL
@@ -85,7 +85,7 @@ services:
   
       # Comment out ports: when using behind a reverse proxy , enable networks: etc.
       ports:
-        - 127.0.0.1:5001:5001
+        - 5001:5000
       restart: unless-stopped
 
      # Used for fetching pages via WebDriver+Chrome where you need Javascript support.
