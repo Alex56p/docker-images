@@ -29,7 +29,6 @@ services:
   ecommerce-exporter:
     image: badjware/ecommerce-exporter:latest
     container_name: ecommerce-exporter
-    network_mode: "host"
     ports:
       - 9101:8000
     volumes:
