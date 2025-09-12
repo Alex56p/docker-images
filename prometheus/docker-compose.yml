@@ -26,3 +26,12 @@ services:
       - /:/host:ro,rslave
     restart: unless-stopped
 
+  ecommerce-exporter:
+    image: badjware/ecommerce-exporter:latest
+    container_name: ecommerce-exporter
+    network_mode: "host"
+    ports:
+      - 9101:8000
+    volumes:
+      - /mnt/prometheus/ecommerce-exporter.yml:/ecommerce-exporter.yml
+    restart: unless-stopped
