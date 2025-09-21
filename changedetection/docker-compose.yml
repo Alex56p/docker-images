@@ -22,7 +22,7 @@ services:
   #
   #
   #       Alternative WebDriver/selenium URL, do not use "'s or 's! (old, deprecated, does not support screenshots very well)
-        - WEBDRIVER_URL=http://browser-selenium-chrome:4444/wd/hub
+         - WEBDRIVER_URL=http://browser-selenium-chrome:4444/wd/hub
   #
   #       WebDriver proxy settings webdriver_proxyType, webdriver_ftpProxy, webdriver_noProxy,
   #                                webdriver_proxyAutoconfigUrl, webdriver_autodetect,
