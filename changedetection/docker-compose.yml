@@ -22,7 +22,7 @@ services:
   #
   #
   #       Alternative WebDriver/selenium URL, do not use "'s or 's! (old, deprecated, does not support screenshots very well)
-  #      - WEBDRIVER_URL=http://browser-selenium-chrome:4444/wd/hub
+        - WEBDRIVER_URL=http://browser-selenium-chrome:4444/wd/hub
   #
   #       WebDriver proxy settings webdriver_proxyType, webdriver_ftpProxy, webdriver_noProxy,
   #                                webdriver_proxyAutoconfigUrl, webdriver_autodetect,
@@ -97,6 +97,8 @@ services:
       depends_on:
           browser-sockpuppet-chrome:
               condition: service_started
+          browser-selenium-chrome:
+              condition: service_started
 
 
      # Sockpuppetbrowser is basically chrome wrapped in an API for allowing fast fetching of web-pages.
@@ -117,20 +119,20 @@ services:
      # Used for fetching pages via Playwright+Chrome where you need Javascript support.
      # Note: Works well but is deprecated, does not fetch full page screenshots (doesnt work with Visual Selector)
      #       Does not report status codes (200, 404, 403) and other issues
-#    browser-selenium-chrome:
-#        hostname: browser-selenium-chrome
-#        image: selenium/standalone-chrome:4
-#        environment:
-#            - VNC_NO_PASSWORD=1
-#            - SCREEN_WIDTH=1920
-#            - SCREEN_HEIGHT=1080
-#            - SCREEN_DEPTH=24
-#          CHROME_OPTIONS: |
-#            --window-size=1280,1024
-#            --headless
-#            --disable-gpu
-#        volumes:
-#            # Workaround to avoid the browser crashing inside a docker container
-#            # See https://github.com/SeleniumHQ/docker-selenium#quick-start
-#            - /dev/shm:/dev/shm
-#        restart: unless-stopped
+    browser-selenium-chrome:
+        hostname: browser-selenium-chrome
+        image: selenium/standalone-chrome:4
+        environment:
+            - VNC_NO_PASSWORD=1
+            - SCREEN_WIDTH=1920
+            - SCREEN_HEIGHT=1080
+            - SCREEN_DEPTH=24
+          CHROME_OPTIONS: |
+            --window-size=1280,1024
+            --headless
+            --disable-gpu
+        volumes:
+            # Workaround to avoid the browser crashing inside a docker container
+            # See https://github.com/SeleniumHQ/docker-selenium#quick-start
+            - /dev/shm:/dev/shm
+        restart: unless-stopped
