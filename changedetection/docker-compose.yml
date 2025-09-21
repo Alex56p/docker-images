@@ -97,8 +97,6 @@ services:
       depends_on:
           browser-sockpuppet-chrome:
               condition: service_started
-          browser-selenium-chrome:
-              condition: service_started
 
 
      # Sockpuppetbrowser is basically chrome wrapped in an API for allowing fast fetching of web-pages.
