@@ -9,7 +9,7 @@ services:
       - PGID=1000
       - TZ=America/Montreal
     volumes:
-      - /mnt/data/syncthing/config:/config
+      - /mnt/nas/Alexis/obsidian/syncthing/config:/config
       - /mnt/data/syncthing/data:/data
     ports:
       - 8384:8384
@@ -25,7 +25,7 @@ services:
       - PGID=1000
       - TZ=America/Toronto
     volumes:
-      - /mnt/data/obsidian/config:/config
+      - /mnt/nas/Alexis/obsidian/config:/config
     ports:
       - 3100:3000
       - 3101:3001
