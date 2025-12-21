@@ -9,7 +9,7 @@ services:
       - "${BACKEND_PORT:-5174}:5174"
     environment:
       - ../stack.env
-      - DATABASE_URL=postgresql://puckuser:puckpass@db:5432/puckintel
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-puckuser}:${POSTGRES_PASSWORD:-puckpass}@db:5432/${POSTGRES_DB:-puckintel}
       - LEAGUE_YEAR=${LEAGUE_YEAR:-2025}
       - PORT=5174
     depends_on:
