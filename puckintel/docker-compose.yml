@@ -19,6 +19,8 @@ services:
   frontend:
     image: puckintel_frontend:latest
     container_name: puckintel_frontend
+    environment:
+      - BACKEND_PORT=${BACKEND_PORT:-8000}
     restart: unless-stopped
     ports:
       - "5173:5173"
@@ -31,7 +33,6 @@ services:
     restart: unless-stopped
     environment:
       - ../stack.env
-      - BACKEND_PORT=${BACKEND_PORT:-8000}
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U puckuser -d puckintel" ]
       interval: 5s
