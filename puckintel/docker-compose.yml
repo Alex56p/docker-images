@@ -7,6 +7,8 @@ services:
     restart: unless-stopped
     ports:
       - "${BACKEND_PORT:-5174}:5174"
+    env_file:
+      - ../stack.env
     environment:
       - ../stack.env
       - DATABASE_URL=postgresql://${POSTGRES_USER:-puckuser}:${POSTGRES_PASSWORD:-puckpass}@db:5432/${POSTGRES_DB:-puckintel}
@@ -31,7 +33,7 @@ services:
     image: postgres:15-alpine
     container_name: puckintel_db
     restart: unless-stopped
-    environment:
+    env_file:
       - ../stack.env
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U puckuser -d puckintel" ]
