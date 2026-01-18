@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    image: puckintel_backend:latest
+    image: puckintel_backend:1.0.0
     container_name: puckintel_backend
     restart: unless-stopped
     ports:
@@ -19,7 +19,7 @@ services:
         condition: service_healthy
 
   frontend:
-    image: puckintel_frontend:latest
+    image: puckintel_frontend:1.0.0
     container_name: puckintel_frontend
     environment:
       - BACKEND_PORT=${BACKEND_PORT:-8000}
