@@ -19,7 +19,7 @@ services:
     image: doula-manager:latest
     container_name: doula-app
     ports:
-      - "3000:3000"
+      - "5005:5005"
     env_file:
       - ../stack.env
     environment:
