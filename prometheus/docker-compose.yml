@@ -22,6 +22,7 @@ services:
     network_mode: "host"
     command:
       - '--path.rootfs=/host'
+      - '--collector.textfile.directory=/host/home/alex/rsyn_jobs/log/prom'
     volumes:
       - /:/host:ro,rslave
     restart: unless-stopped
