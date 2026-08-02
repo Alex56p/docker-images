@@ -9,6 +9,8 @@ services:
     environment:
       - STORYTELLER_SECRET_KEY_FILE=/run/secrets/secret_key
       - USE_GPU=false
+      - NO_GPU=true
+      - GGML_CUDA_DISABLE=1
       - WHISPER_BUILD_VARIANT=linux-x64-cpu-legacy
     ports:
       - "8001:8001"
