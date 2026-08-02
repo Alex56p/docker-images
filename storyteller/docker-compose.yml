@@ -1,16 +1,4 @@
 services:
-  grafana:
-    image: grafana/grafana-enterprise
-    container_name: grafana
-    restart: unless-stopped
-    user: '0'
-    env_file:
-      - ../stack.env
-    ports:
-     - '5000:3000'
-    volumes:
-      - /mnt/data/grafana-storage:/var/lib/grafana
-services:
   web:
     image: registry.gitlab.com/storyteller-platform/storyteller:latest
     container_name: storyteller
