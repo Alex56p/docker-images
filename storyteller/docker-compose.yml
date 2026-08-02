@@ -8,17 +8,18 @@ services:
       - /mnt/data/storyteller/data:/data:rw
     environment:
       - STORYTELLER_SECRET_KEY_FILE=/run/secrets/secret_key
+      - USE_GPU=false
     ports:
       - "8001:8001"
     secrets:
       - secret_key
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+    #deploy:
+    #  resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: all
+    #          capabilities: [gpu]
 secrets:
   secret_key:
     # Chemin absolu vers le fichier texte contenant la clé secrète sur le serveur
