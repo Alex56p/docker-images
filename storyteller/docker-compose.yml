@@ -11,7 +11,7 @@ services:
       - CUDA_VISIBLE_DEVICES=""
       - NVIDIA_VISIBLE_DEVICES=""
       - USE_GPU=false
-      - WHISPER_BUILD_VARIANT=linux-x64-cpu-legacy
+      #- WHISPER_BUILD_VARIANT=linux-x64-cpu-legacy
     ports:
       - "8001:8001"
     secrets:
