@@ -1,0 +1,31 @@
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    user: '0'
+    env_file:
+      - ../stack.env
+    ports:
+     - '5000:3000'
+    volumes:
+      - /mnt/data/grafana-storage:/var/lib/grafana
+services:
+  web:
+    image: registry.gitlab.com/storyteller-platform/storyteller:latest
+    container_name: storyteller
+    restart: unless-stopped
+    volumes:
+      # Remplacer ~/ par le chemin absolu vers le dossier de données de l'utilisateur
+      - /mnt/data/storyteller/data:/data:rw
+    environment:
+      - STORYTELLER_SECRET_KEY_FILE=/run/secrets/secret_key
+    ports:
+      - "8001:8001"
+    secrets:
+      - secret_key
+
+secrets:
+  secret_key:
+    # Chemin absolu vers le fichier texte contenant la clé secrète sur le serveur
+    file: /mnt/data/storyteller/STORYTELLER_SECRET_KEY.txt
